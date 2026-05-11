@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Services — KAIYTEC Creative</title>
+<meta name="description" content="11 world-class branding and digital marketing services. AI-powered. Human-led. Built for Sierra Leone businesses ready to grow."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Outfit:wght@200;300;400;500;600;700&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --g:#0A5A2F;--g2:#0D6E38;--g3:#12A855;--g4:#1DCC6A;
+  --black:#000D05;--s1:#030F07;--s2:#060F09;--s3:#0A1A0E;
+  --white:#F0FFF5;--muted:rgba(240,255,245,0.45);--dim:rgba(240,255,245,0.15);
+  --border:rgba(10,90,47,0.25);--border2:rgba(18,168,85,0.15);
+  --font-display:'Syne',sans-serif;--font-body:'Outfit',sans-serif;--font-mono:'Orbitron',monospace;
+  --ease:cubic-bezier(0.25,0.46,0.45,0.94);--spring:cubic-bezier(0.34,1.56,0.64,1);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--black);color:var(--white);font-family:var(--font-body);overflow-x:hidden;cursor:none;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+::selection{background:rgba(18,168,85,0.3);color:#fff}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--black)}::-webkit-scrollbar-thumb{background:var(--g);border-radius:2px}
+
+#cursor{position:fixed;width:12px;height:12px;background:var(--g3);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s}
+#cursor-ring{position:fixed;width:40px;height:40px;border:1px solid rgba(18,168,85,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .08s linear,width .3s,height .3s}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.4}
+.grid-lines{position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(10,90,47,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(10,90,47,0.04) 1px,transparent 1px);background-size:80px 80px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:0 clamp(1.5rem,4vw,4rem);height:72px;display:flex;align-items:center;justify-content:space-between;transition:background .5s,border-color .5s;border-bottom:1px solid transparent}
+nav.scrolled{background:rgba(0,13,5,0.88);backdrop-filter:blur(24px);border-color:var(--border)}
+.nav-logo{display:flex;align-items:center;gap:12px}
+.nav-logo img{width:36px;height:36px;object-fit:contain;filter:drop-shadow(0 0 12px rgba(18,168,85,0.5))}
+.nav-logo-text .name{font-family:var(--font-mono);font-size:.7rem;font-weight:700;letter-spacing:.2em;color:var(--white);display:block}
+.nav-logo-text .sub{font-family:var(--font-mono);font-size:.5rem;letter-spacing:.4em;color:var(--g3);display:block;margin-top:2px}
+.nav-links{display:flex;align-items:center;gap:2.5rem}
+.nav-links a{font-family:var(--font-body);font-size:.8rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(240,255,245,0.6);transition:color .2s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--g3);transition:width .3s}
+.nav-links a:hover{color:var(--white)}.nav-links a:hover::after{width:100%}
+.nav-links a.active{color:var(--g3)}.nav-links a.active::after{width:100%}
+.nav-cta{display:flex;align-items:center;gap:.6rem;padding:.6rem 1.4rem;background:var(--g);border:1px solid rgba(18,168,85,0.3);border-radius:3px;font-family:var(--font-body);font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--white);transition:all .3s;position:relative;overflow:hidden}
+.nav-cta::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.1),transparent);transform:translateX(-100%);transition:transform .5s}
+.nav-cta:hover::before{transform:translateX(100%)}.nav-cta:hover{box-shadow:0 0 30px rgba(10,90,47,0.5);transform:translateY(-1px)}
+.nav-burger{display:none;flex-direction:column;gap:5px;cursor:none;padding:4px}
+.nav-burger span{display:block;width:24px;height:1.5px;background:var(--white);transition:all .3s}
+.nav-burger.open span:nth-child(1){transform:rotate(45deg) translate(4px,5px)}
+.nav-burger.open span:nth-child(2){opacity:0}
+.nav-burger.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-5px)}
+.mobile-menu{position:fixed;inset:0;z-index:490;background:rgba(0,13,5,0.97);backdrop-filter:blur(30px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;opacity:0;pointer-events:none;transition:opacity .4s}
+.mobile-menu.open{opacity:1;pointer-events:all}
+.mobile-menu a{font-family:var(--font-mono);font-size:1.5rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(240,255,245,0.7);transform:translateY(20px);opacity:0;transition:color .2s,transform .4s var(--spring),opacity .4s}
+.mobile-menu.open a{transform:translateY(0);opacity:1}
+.mobile-menu.open a:nth-child(1){transition-delay:.05s}.mobile-menu.open a:nth-child(2){transition-delay:.1s}.mobile-menu.open a:nth-child(3){transition-delay:.15s}.mobile-menu.open a:nth-child(4){transition-delay:.2s}.mobile-menu.open a:nth-child(5){transition-delay:.25s}.mobile-menu.open a:nth-child(6){transition-delay:.3s}
+.mobile-menu a:hover{color:var(--g3)}
+
+/* PAGE HERO */
+.page-hero{
+  position:relative;padding:140px clamp(1.5rem,5vw,6rem) 80px;
+  background:radial-gradient(ellipse 100% 80% at 50% -20%,rgba(10,90,47,0.2) 0%,transparent 60%);
+  border-bottom:1px solid var(--border);overflow:hidden;
+}
+.page-hero-scan{position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(18,168,85,0.4) 30%,rgba(29,204,106,0.6) 50%,rgba(18,168,85,0.4) 70%,transparent);animation:scanDown 8s linear infinite;pointer-events:none;top:0}
+@keyframes scanDown{from{top:0}to{top:100%}}
+.page-hero-inner{max-width:1300px;margin:0 auto}
+.eyebrow{display:inline-flex;align-items:center;gap:.75rem;margin-bottom:1.5rem}
+.eyebrow::before{content:'';width:24px;height:1px;background:linear-gradient(90deg,transparent,var(--g3))}
+.eyebrow::after{content:'';width:24px;height:1px;background:linear-gradient(90deg,var(--g3),transparent)}
+.eyebrow-text{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--g3)}
+.page-title{font-family:var(--font-display);font-size:clamp(3rem,7vw,7rem);font-weight:800;line-height:.9;letter-spacing:-.03em;margin-bottom:1.5rem}
+.page-title .wh{color:var(--white)}.page-title .gr{background:linear-gradient(90deg,var(--g3),var(--g4));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.page-title .dim{color:rgba(240,255,245,0.15)}
+.page-sub{font-size:clamp(1rem,1.8vw,1.2rem);font-weight:300;color:var(--muted);max-width:600px;line-height:1.75}
+
+/* FILTER BAR */
+.filter-bar{
+  position:sticky;top:72px;z-index:100;
+  background:rgba(0,13,5,0.9);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  padding:.9rem clamp(1.5rem,5vw,6rem);
+}
+.filter-inner{max-width:1300px;margin:0 auto;display:flex;align-items:center;gap:1rem;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none}
+.filter-inner::-webkit-scrollbar{display:none}
+.filter-label{font-family:var(--font-mono);font-size:.55rem;letter-spacing:.25em;text-transform:uppercase;color:var(--dim);flex-shrink:0;margin-right:.5rem}
+.filter-btn{
+  padding:.4rem 1.1rem;border-radius:100px;
+  font-family:var(--font-body);font-size:.75rem;font-weight:500;letter-spacing:.05em;
+  border:1px solid var(--border);color:var(--dim);
+  background:transparent;cursor:none;
+  transition:all .2s;white-space:nowrap;flex-shrink:0;
+}
+.filter-btn:hover{border-color:rgba(18,168,85,0.35);color:var(--white)}
+.filter-btn.active{background:var(--g);border-color:rgba(18,168,85,0.5);color:var(--white);box-shadow:0 0 20px rgba(10,90,47,0.3)}
+
+/* SERVICES SECTION */
+.services-section{padding:5rem clamp(1.5rem,5vw,6rem);max-width:1300px;margin:0 auto}
+.category-label{
+  font-family:var(--font-mono);font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;
+  color:var(--g3);margin-bottom:2rem;margin-top:4rem;
+  display:flex;align-items:center;gap:1rem;
+}
+.category-label::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(10,90,47,0.4),transparent)}
+.category-label:first-child{margin-top:0}
+
+/* SERVICE CARDS — HORIZONTAL LAYOUT */
+.svc-list{display:flex;flex-direction:column;gap:1px;background:var(--border);border-radius:16px;overflow:hidden;border:1px solid var(--border)}
+.svc-item{
+  background:var(--s2);display:grid;grid-template-columns:60px 1fr auto;
+  align-items:start;gap:2rem;padding:2rem 2.5rem;
+  transition:background .25s var(--ease);cursor:none;
+  position:relative;overflow:hidden;
+}
+.svc-item::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:2px;
+  background:linear-gradient(to bottom,transparent,var(--g3),transparent);
+  transform:scaleY(0);transition:transform .4s var(--ease);transform-origin:bottom;
+}
+.svc-item:hover{background:var(--s3)}.svc-item:hover::before{transform:scaleY(1)}
+.svc-num{
+  font-family:var(--font-mono);font-size:.65rem;font-weight:700;
+  color:var(--g3);padding-top:.25rem;letter-spacing:.1em;
+}
+.svc-body{flex:1}
+.svc-name{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--white);margin-bottom:.5rem;letter-spacing:-.01em;transition:color .2s}
+.svc-item:hover .svc-name{color:var(--g3)}
+.svc-desc{font-size:.85rem;font-weight:300;color:var(--muted);line-height:1.7;max-width:560px;margin-bottom:1rem}
+.svc-features{display:flex;flex-wrap:wrap;gap:.5rem}
+.svc-feature{
+  padding:.3rem .8rem;background:rgba(10,90,47,0.1);border:1px solid rgba(10,90,47,0.25);
+  border-radius:100px;font-size:.7rem;font-weight:400;color:rgba(240,255,245,0.5);letter-spacing:.04em;
+}
+.svc-cta{
+  flex-shrink:0;display:flex;align-items:center;gap:.5rem;
+  font-family:var(--font-mono);font-size:.55rem;letter-spacing:.25em;text-transform:uppercase;
+  color:var(--g3);padding:.5rem 1rem;border:1px solid rgba(10,90,47,0.3);border-radius:4px;
+  transition:all .3s;align-self:flex-start;margin-top:.25rem;
+  white-space:nowrap;
+}
+.svc-cta svg{width:12px;height:12px;transition:transform .3s}
+.svc-item:hover .svc-cta{background:rgba(10,90,47,0.15);border-color:rgba(18,168,85,0.4)}
+.svc-item:hover .svc-cta svg{transform:translateX(4px)}
+
+/* PRICING SECTION */
+.pricing-section{
+  background:var(--s1);border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  padding:5rem clamp(1.5rem,5vw,6rem);
+}
+.pricing-inner{max-width:1300px;margin:0 auto}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem}
+.price-card{
+  background:var(--s2);border:1px solid var(--border);border-radius:16px;
+  padding:2.5rem 2rem;position:relative;overflow:hidden;
+  transition:transform .3s var(--ease),border-color .3s;cursor:none;
+}
+.price-card:hover{transform:translateY(-6px);border-color:rgba(18,168,85,0.3)}
+.price-card.featured{
+  border-color:rgba(18,168,85,0.4);
+  background:linear-gradient(135deg,rgba(10,90,47,0.15) 0%,var(--s2) 60%);
+}
+.price-card.featured::before{
+  content:'MOST POPULAR';
+  position:absolute;top:0;right:0;
+  background:linear-gradient(135deg,var(--g),var(--g3));
+  font-family:var(--font-mono);font-size:.5rem;letter-spacing:.25em;color:var(--white);
+  padding:.4rem 1rem;border-radius:0 14px 0 12px;
+}
+.price-tier{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--g3);margin-bottom:1rem}
+.price-name{font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:var(--white);margin-bottom:.5rem}
+.price-desc{font-size:.8rem;font-weight:300;color:var(--muted);line-height:1.6;margin-bottom:1.5rem}
+.price-range{font-family:var(--font-mono);font-size:1.6rem;font-weight:700;background:linear-gradient(135deg,var(--g3),var(--g4));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.25rem}
+.price-currency{font-size:.7rem;font-weight:300;color:var(--dim);margin-bottom:2rem}
+.price-features{list-style:none;display:flex;flex-direction:column;gap:.75rem;margin-bottom:2rem}
+.price-features li{display:flex;align-items:flex-start;gap:.7rem;font-size:.8rem;font-weight:300;color:rgba(240,255,245,0.65)}
+.price-check{width:14px;height:14px;flex-shrink:0;color:var(--g3);margin-top:.1rem}
+.price-btn{
+  display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;
+  padding:.85rem;background:transparent;border:1px solid rgba(10,90,47,0.4);border-radius:6px;
+  font-family:var(--font-body);font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--white);transition:all .3s;cursor:none;
+}
+.price-card.featured .price-btn{background:linear-gradient(135deg,var(--g),var(--g2));border-color:rgba(18,168,85,0.4)}
+.price-btn:hover{background:rgba(10,90,47,0.2);border-color:rgba(18,168,85,0.5);box-shadow:0 0 20px rgba(10,90,47,0.3)}
+.price-card.featured .price-btn:hover{box-shadow:0 0 30px rgba(10,90,47,0.5)}
+
+/* CTA strip */
+.cta-strip{
+  padding:5rem clamp(1.5rem,5vw,6rem);
+  text-align:center;border-top:1px solid var(--border);
+}
+.cta-strip-inner{max-width:700px;margin:0 auto}
+.cta-strip h2{font-family:var(--font-display);font-size:clamp(2rem,4vw,3.5rem);font-weight:800;color:var(--white);line-height:1;margin-bottom:1rem}
+.cta-strip h2 span{background:linear-gradient(90deg,var(--g3),var(--g4));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cta-strip p{font-size:1rem;font-weight:300;color:var(--muted);margin-bottom:2rem;line-height:1.7}
+.btn-primary{display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 1.8rem;background:linear-gradient(135deg,var(--g) 0%,var(--g2) 100%);border:1px solid rgba(18,168,85,0.4);border-radius:4px;font-family:var(--font-body);font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--white);transition:all .3s;overflow:hidden;position:relative;cursor:none}
+.btn-primary::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.08),transparent);transform:translateX(-100%);transition:transform .6s}
+.btn-primary:hover::before{transform:translateX(100%)}.btn-primary:hover{box-shadow:0 0 40px rgba(10,90,47,0.5);transform:translateY(-2px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 1.8rem;border:1px solid var(--border);border-radius:4px;font-family:var(--font-body);font-size:.8rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);transition:all .3s;cursor:none}
+.btn-ghost:hover{border-color:rgba(18,168,85,0.4);color:var(--white);background:rgba(10,90,47,0.1)}
+.cta-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+/* WA FLOAT */
+.wa-float{position:fixed;bottom:2rem;right:2rem;z-index:400;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--g) 0%,var(--g3) 100%);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(10,90,47,0.5);transition:transform .3s var(--spring);cursor:none;animation:waPulse 3s ease infinite}
+@keyframes waPulse{0%,100%{box-shadow:0 8px 30px rgba(10,90,47,0.5),0 0 0 0 rgba(18,168,85,0.4)}70%{box-shadow:0 8px 30px rgba(10,90,47,0.5),0 0 0 16px rgba(18,168,85,0)}}
+.wa-float:hover{transform:scale(1.1)}.wa-float svg{width:26px;height:26px;fill:white}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);background:var(--s1);padding:3rem clamp(1.5rem,5vw,5rem) 2rem}
+.footer-row{max-width:1300px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-copy{font-size:.7rem;font-weight:300;color:var(--dim)}
+.footer-links-row{display:flex;gap:1.5rem}
+.footer-links-row a{font-size:.7rem;color:var(--dim);transition:color .2s;cursor:none}.footer-links-row a:hover{color:var(--white)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay1{transition-delay:.1s}.reveal-delay2{transition-delay:.2s}.reveal-delay3{transition-delay:.3s}
+
+@media(max-width:1024px){.svc-item{grid-template-columns:50px 1fr;}.svc-cta{grid-column:2}}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}.nav-burger{display:flex}
+  .svc-item{grid-template-columns:1fr;gap:1rem;padding:1.5rem}
+  .svc-num{display:none}.svc-cta{align-self:flex-start}
+  .pricing-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<div class="grid-lines"></div>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="KAIYTEC"/>
+    <div class="nav-logo-text"><span class="name">KAIYTEC</span><span class="sub">Creative</span></div>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="services.html" class="active">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="about.html">About</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <a href="https://wa.me/23276000000" target="_blank" class="nav-cta">Start Project <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  <button class="nav-burger" id="burger"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html" onclick="closeMobile()">Home</a>
+  <a href="services.html" onclick="closeMobile()">Services</a>
+  <a href="portfolio.html" onclick="closeMobile()">Portfolio</a>
+  <a href="about.html" onclick="closeMobile()">About</a>
+  <a href="blog.html" onclick="closeMobile()">Blog</a>
+  <a href="contact.html" onclick="closeMobile()">Contact</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-scan"></div>
+  <div class="page-hero-inner">
+    <div class="eyebrow"><span class="eyebrow-text">What We Offer</span></div>
+    <h1 class="page-title">
+      <span class="wh">SERVICES</span><br>
+      <span class="gr">BUILT TO WIN</span><br>
+      <span class="dim">YOUR MARKET</span>
+    </h1>
+    <p class="page-sub">Every service is designed with one goal: making your business look world-class and grow faster. AI-powered workflow. Human creative leadership. Always exceptional.</p>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="filter-inner">
+    <span class="filter-label">Filter:</span>
+    <button class="filter-btn active" data-filter="all">All Services</button>
+    <button class="filter-btn" data-filter="branding">Branding</button>
+    <button class="filter-btn" data-filter="digital">Digital</button>
+    <button class="filter-btn" data-filter="design">Design</button>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div class="services-section">
+
+  <!-- Branding -->
+  <div class="category-label" data-category="branding">Branding</div>
+  <div class="svc-list" data-category="branding">
+    <div class="svc-item reveal">
+      <div class="svc-num">01</div>
+      <div class="svc-body">
+        <div class="svc-name">Brand Identity Design</div>
+        <div class="svc-desc">Complete brand systems that make your business unforgettable. This is your most important investment — a full visual identity built on strategy, executed with world-class precision. Logo, colors, typography, brand guidelines, and every asset you need to show up consistently.</div>
+        <div class="svc-features">
+          <span class="svc-feature">Primary Logo Design</span>
+          <span class="svc-feature">Color System</span>
+          <span class="svc-feature">Typography Selection</span>
+          <span class="svc-feature">Brand Guidelines Document</span>
+          <span class="svc-feature">All File Formats</span>
+          <span class="svc-feature">2 Revision Rounds</span>
+        </div>
+      </div>
+      <a href="contact.html" class="svc-cta">Get Quote <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="svc-item reveal reveal-delay1">
+      <div class="svc-num">02</div>
+      <div class="svc-body">
+        <div class="svc-name">Logo Design</div>
+        <div class="svc-desc">Professional logo design that captures the essence of your business. Multiple concepts, unlimited vision, delivered in every format you need — SVG, PNG, PDF, and all size variations for print and digital.</div>
+        <div class="svc-features">
+          <span class="svc-feature">Multiple Concepts</span>
+          <span class="svc-feature">Logo Variations</span>
+          <span class="svc-feature">Vector Files (SVG)</span>
+          <span class="svc-feature">Print-Ready PDF</span>
+          <span class="svc-feature">Dark &amp; Light Versions</span>
+        </div>
+      </div>
+      <a href="contact.html" class="svc-cta">Get Quote <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="svc-item reveal reveal-delay2">
+      <div class="svc-num">03</div>
+      <div class="svc-body">
+        <div class="svc-name">Smart Business Cards</div>
+        <div class="svc-desc">Digital and physical business cards that make a lasting impression. NFC-compatible design, QR code integration, and premium print-ready layouts that make every handshake memorable.</div>
+        <div class="svc-features">
+          <span class="svc-feature">Digital Card Design</span>
+          <span class="svc-feature">QR Code Integration</span>
+          <span class="svc-feature">Print-Ready Files</span>
+          <span class="svc-feature">NFC-Compatible</span>
+          <span class="svc-feature">Social Links</span>
+        </div>
+      </div>
+      <a href="contact.html" class="svc-cta">Get Quote <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+
+  <!-- Digital -->
+  <div class="category-label" data-category="digital">Digital</div>
+  <div class="svc-list" data-category="digital">
+    <div class="svc-item reveal">
+      <div class="svc-num">04</div>
+      <div class="svc-body">
+        <div class="svc-name">Website Design</div>
+        <div class="svc-desc">Stunning, fast-loading websites that convert visitors into customers. From single-page landing sites to full multi-page business websites — designed for mobile-first, built for conversion.</div>
+        <div class="svc-features">
+          <span class="svc-feature">Custom UI Design</span>
+          <span class="svc-feature">Mobile Responsive</span>
+          <span class="svc-feature">SEO Optimized</span>
+          <span class="svc-feature">Fast Loading</span>
+          <span class="svc-feature">Easy to Manage</span>
+        </div>
+      </div>
+      <a href="contact.html" class="svc-cta">Get Quote <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="svc-item reveal reveal-delay1">
+      <div class="svc-num">05</div>
+      <div class="svc-body">
+        <div class="svc-name">Social Media Branding</div>
+        <div class="svc-desc">Consistent, scroll-stopping social presence across all platforms. Custom templates, content calendars, monthly management packages — your brand, everywhere your customers are looking.</div>
+        <div class="svc-features">
+          <span class="svc-feature">Profile Setup &amp; Optimization</span>
+          <span class="svc-feature">Custom Post Templates</span>
+          <span class="svc-feature">Content Calendar</span>
+          <span class="svc-feature">Monthly Packages</span>
+          <span class="svc-feature">Multi-Platform</span>
+        </div>
+      </div>
+      <a href="contact.html" class="svc-cta">Get Quote <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="svc-item reveal reveal-delay2">
+      <div class="svc-num">06</div>
+      <div class="svc-body">
+        <div class="svc-name">Marketing Campaigns</div>
+        <div class="svc-desc">Full campaign strategy and visual execution. Concept to all-platform assets — we make your message impossible to ignore. Ad creatives, email design, influencer briefs, and campaign direction.</div>
+        <div class="svc-features">
+          <span class="svc-feature">Campaign Concept</span>
+          <span class="svc-feature">All Visual Assets</span>
+          <span class="svc-feature">Ad Creatives</span>
+          <span class="svc-feature">Email Design</span>
+          <span class="svc-feature">Campaign Strategy</span>
+        </div>
+      </div>
+      <a href="contact.html" class="svc-cta">Get Quote <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="svc-item reveal">
+      <div class="svc-num">07</div>
+      <div class="svc-body">
+        <div class="svc-name">Digital Marketing Consulting</div>
+        <div class="svc-desc">Expert guidance on Facebook Ads, Instagram strategy, SEO, and Google My Business. Know exactly what to do, when to do it, and how to measure it. Strategy-first, results-focused.</div>
+        <div class="svc-features">
+          <span class="svc-feature">Ad Strategy</span>
+          <span class="svc-feature">SEO Consultation</span>
+          <span class="svc-feature">Google My Business</span>
+          <span class="svc-feature">WhatsApp Business</span>
+          <span class="svc-feature">Growth Roadmap</span>
+        </div>
+      </div>
+      <a href="contact.html" class="svc-cta">Get Quote <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+
+  <!-- Design -->
+  <div class="category-label" data-category="design">Design</div>
+  <div class="svc-list" data-category="design">
+    <div class="svc-item reveal">
+      <div class="svc-num">08</div>
+      <div class="svc-body">
+        <div class="svc-name">Packaging Design</div>
+        <div class="svc-desc">Product packaging that sells itself on every shelf. Labels, boxes, bags — designed to attract buyers and tell your brand story in seconds. Print-ready files in every format you need.</div>
+        <div class="svc-features">
+          <span class="svc-feature">Label Design</span>
+          <span class="svc-feature">Box &amp; Bag Design</span>
+          <span class="svc-feature">Print-Ready Files</span>
+          <span class="svc-feature">Brand Consistency</span>
+          <span class="svc-feature">Multiple Formats</span>
+        </div>
+      </div>
+      <a href="contact.html" class="svc-cta">Get Quote <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="svc-item reveal reveal-delay1">
+      <div class="svc-num">09</div>
+      <div class="svc-body">
+        <div class="svc-name">Pitch Deck Design</div>
+        <div class="svc-desc">Investor-ready presentations that tell your story with power and precision. Custom designed slides, data visualization, and a narrative structure built to win rooms and raise capital.</div>
+        <div class="svc-features">
+          <span class="svc-feature">Custom Deck Design</span>
+          <span class="svc-feature">Storytelling Structure</span>
+          <span class="svc-feature">Data Visualization</span>
+          <span class="svc-feature">10–20 Slides</span>
+          <span class="svc-feature">Editable Format</span>
+        </div>
+      </div>
+      <a href="contact.html" class="svc-cta">Get Quote <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="svc-item reveal reveal-delay2">
+      <div class="svc-num">10</div>
+      <div class="svc-body">
+        <div class="svc-name">Digital Invitations</div>
+        <div class="svc-desc">Elegant digital invitations for weddings, events, product launches, and celebrations. Designed to impress, animated on request, and shareable instantly via WhatsApp.</div>
+        <div class="svc-features">
+          <span class="svc-feature">Custom Design</span>
+          <span class="svc-feature">WhatsApp Shareable</span>
+          <span class="svc-feature">Animated Options</span>
+          <span class="svc-feature">RSVP Link Setup</span>
+          <span class="svc-feature">Fast Delivery</span>
+        </div>
+      </div>
+      <a href="contact.html" class="svc-cta">Get Quote <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="svc-item reveal">
+      <div class="svc-num">11</div>
+      <div class="svc-body">
+        <div class="svc-name">UI/UX Design</div>
+        <div class="svc-desc">Beautiful, intuitive user interface design for apps and digital platforms. Research-driven, conversion-focused, delivered in Figma with complete design specifications.</div>
+        <div class="svc-features">
+          <span class="svc-feature">User Research</span>
+          <span class="svc-feature">Wireframing</span>
+          <span class="svc-feature">UI Design</span>
+          <span class="svc-feature">Prototype</span>
+          <span class="svc-feature">Figma Delivery</span>
+        </div>
+      </div>
+      <a href="contact.html" class="svc-cta">Get Quote <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<div class="pricing-section">
+  <div class="pricing-inner">
+    <div class="reveal" style="text-align:center">
+      <div class="eyebrow" style="justify-content:center"><span class="eyebrow-text">Investment</span></div>
+      <h2 style="font-family:var(--font-display);font-size:clamp(2rem,4vw,4rem);font-weight:800;line-height:1;letter-spacing:-.02em;color:var(--white)">TRANSPARENT <span style="background:linear-gradient(90deg,var(--g3),var(--g4));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">PRICING</span></h2>
+      <p style="font-size:.95rem;font-weight:300;color:var(--muted);max-width:500px;margin:.8rem auto 0;line-height:1.7">All prices in Sierra Leonean Leones (SLE). 50% deposit to begin, 50% on delivery. Written agreements on every project.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card reveal">
+        <div class="price-tier">Starter</div>
+        <div class="price-name">Brand Identity Starter</div>
+        <div class="price-desc">Perfect for new businesses establishing their first professional brand presence.</div>
+        <div class="price-range">700K – 1M</div>
+        <div class="price-currency">SLE · includes 50% deposit</div>
+        <ul class="price-features">
+          <li><svg class="price-check" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Primary logo design</li>
+          <li><svg class="price-check" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Brand color system</li>
+          <li><svg class="price-check" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Typography selection</li>
+          <li><svg class="price-check" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Basic brand guide</li>
+          <li><svg class="price-check" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>All file formats</li>
+          <li><svg class="price-check" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>2 revision rounds</li>
+        </ul>
+        <a href="contact.html" class="price-btn">Get Started <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="price-card featured reveal reveal-delay2">
+        <div class="price-tier">Full System</div>
+        <div class="price-name">Complete Brand Identity</div>
+        <div class="price-desc">The full brand experience — everything you need to dominate your market and look world-class.</div>
+        <div class="price-range">1.2M – 2M</div>
+        <div class="price-currency">SLE · includes 50% deposit</div>
+        <ul class="price-features">
+          <li><svg class="price-check" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Everything in Starter</li>
+          <li><svg class="price-check" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Full brand guidelines doc</li>
+          <li><svg class="price-check" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Social media templates</li>
+          <li><svg class="price-check" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Business card design</li>
+          <li><svg class="price-check" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Letterhead &amp; stationery</li>
+          <li><svg class="price-check" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Priority delivery</li>
+        </ul>
+        <a href="contact.html" class="price-btn">Get Started <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="price-card reveal reveal-delay3">
+        <div class="price-tier">Enterprise</div>
+        <div class="price-name">Social Media Monthly</div>
+        <div class="price-desc">Ongoing monthly management — content creation, posting, and brand consistency across all platforms.</div>
+        <div class="price-range">800K – 4M</div>
+        <div class="price-currency">SLE / month · billed monthly</div>
+        <ul class="price-features">
+          <li><svg class="price-check" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>10–30 posts/month</li>
+          <li><svg class="price-check" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Caption writing</li>
+          <li><svg class="price-check" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Up to 3 platforms</li>
+          <li><svg class="price-check" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Story &amp; reel templates</li>
+          <li><svg class="price-check" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Monthly reporting</li>
+          <li><svg class="price-check" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Ad creatives included</li>
+        </ul>
+        <a href="contact.html" class="price-btn">Get Started <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-strip">
+  <div class="cta-strip-inner reveal">
+    <h2>NOT SURE WHAT<br><span>YOU NEED?</span></h2>
+    <p>Send us a message and we'll listen to your goals — then recommend exactly the right services with no upselling or confusion.</p>
+    <div class="cta-actions">
+      <a href="https://wa.me/23276000000" target="_blank" class="btn-primary">Chat on WhatsApp <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="contact.html" class="btn-ghost">Send a Message</a>
+    </div>
+  </div>
+</div>
+
+<footer><div class="footer-row"><span class="footer-copy">© 2025 KAIYTEC Creative. Making Possibility Real.</span><div class="footer-links-row"><a href="#">Privacy</a><a href="#">Terms</a><a href="contact.html">Contact</a></div></div></footer>
+
+<a href="https://wa.me/23276000000" target="_blank" class="wa-float" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
+
+<script>
+const cursor=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px'});
+(function lerp(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(lerp)})();
+document.querySelectorAll('a,button,.svc-item,.price-card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cursor.style.width='20px';cursor.style.height='20px';ring.style.width='60px';ring.style.height='60px'});
+  el.addEventListener('mouseleave',()=>{cursor.style.width='12px';cursor.style.height='12px';ring.style.width='40px';ring.style.height='40px'});
+});
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>40));
+const burger=document.getElementById('burger'),mobileMenu=document.getElementById('mobile-menu');
+burger.addEventListener('click',()=>{burger.classList.toggle('open');mobileMenu.classList.toggle('open');document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':''});
+function closeMobile(){burger.classList.remove('open');mobileMenu.classList.remove('open');document.body.style.overflow=''}
+const revealEls=document.querySelectorAll('.reveal');
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})},{threshold:0.1});
+revealEls.forEach(el=>io.observe(el));
+
+// Filter
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter=btn.dataset.filter;
+    document.querySelectorAll('.category-label,.svc-list').forEach(el=>{
+      if(filter==='all'){el.style.display=''}
+      else{el.style.display=el.dataset.category===filter?'':'none'}
+    });
+  });
+});
+</script>
+</body>
+</html>
